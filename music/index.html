@@ -40,13 +40,16 @@ main{position:relative;z-index:2;flex:1;min-height:0;display:grid;grid-template-
 .top nav a{padding:3px 12px;border:1px solid rgba(202,168,95,.28);border-radius:14px;background:rgba(10,7,8,.55);color:#e2c17c;text-decoration:none;font-size:14.5px;line-height:1.7;white-space:nowrap}
 .top nav a.on{background:#a0202a;border-color:#a0202a;color:#fff}
 .embed .top nav a.ext{display:none}
+html,#list{scrollbar-width:thin;scrollbar-color:rgba(202,168,95,.55) rgba(10,7,8,.6)}   /* 捲軸也套香布纏的金與墨（作者 2026-10-05） */
+::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-track{background:rgba(10,7,8,.6)}
+::-webkit-scrollbar-thumb{background:rgba(202,168,95,.45);border-radius:5px;border:2px solid rgba(10,7,8,.6)}::-webkit-scrollbar-thumb:hover{background:#caa85f}
 @media (max-width:900px){.top{padding:10px 14px 16px;row-gap:6px}.top .brand{font-size:17px}.top .sub{display:none}.top nav{margin-left:0}.top nav a{padding:2px 8px;font-size:12.5px}}
 footer.foot{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;
   padding:20px 16px calc(10px + env(safe-area-inset-bottom));font-size:13px;color:#cfc3b4;text-shadow:0 1px 3px #000,0 0 10px #000;
   background:linear-gradient(0deg,rgba(6,4,5,.92),rgba(6,4,5,.7) 60%,rgba(6,4,5,0))}   /* 跟頂端導覽列一樣固定在畫面上（作者 2026-10-05） */
 footer.foot a{color:#e2c17c;text-decoration:none}
 header.top{position:relative;flex:none}   /* 播放器整頁不捲，導覽列當成第一列，不用 fixed */
-footer.foot{position:relative;background:none}   /* 頁尾同理，當最後一列 */
+footer.foot{position:relative;z-index:2;background:none}   /* 頁尾同理，當最後一列；層級低於手機的曲目抽屜 */
 #now{align-self:end;max-width:640px;padding-bottom:18px;text-shadow:0 1px 8px #000}
 #cover{width:min(240px,32vw);aspect-ratio:1;border:1px solid var(--line);box-shadow:0 10px 40px rgba(0,0,0,.6);display:block;margin-bottom:14px}
 #vol{color:var(--gold);font-size:14px;letter-spacing:.08em}
@@ -69,13 +72,14 @@ body.bare #stage::after{opacity:.25}
 body.bare #baretip.show{opacity:1}
 body.nolist main{grid-template-columns:minmax(0,1fr)}
 #side{min-height:0;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);margin-bottom:12px}
+#grab{display:none}
 #tabs{flex:none;display:flex;border-bottom:1px solid var(--line)}
 #tabs button{flex:1;padding:10px 0;font-size:15px;color:var(--dim);border-bottom:2px solid transparent}
 #tabs button.on{color:var(--gold2);border-bottom-color:var(--red)}
 #volhead{flex:none;display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
 #volhead b{font-weight:600;color:var(--gold2)}
 #volhead span{color:var(--dim);font-size:13px;flex:1}
-.pill{border:1px solid var(--gold);border-radius:16px;padding:2px 12px;font-size:13px;color:var(--gold2)}
+.pill{border:1px solid var(--gold);border-radius:16px;padding:2px 12px;font-size:13px;color:var(--gold2);white-space:nowrap}
 .pill.red{background:var(--red);border-color:var(--red);color:#fff}
 #list{flex:1;min-height:0;overflow-y:auto;margin:0;padding:0;list-style:none}
 #list li{display:flex;gap:12px;align-items:center;padding:8px 14px;cursor:pointer;border-bottom:1px solid rgba(202,168,95,.08)}
@@ -94,8 +98,12 @@ body.nolist main{grid-template-columns:minmax(0,1fr)}
 #hint[hidden]{display:none}
 @media (max-width:900px){
   main{grid-template-columns:1fr;gap:10px;padding:10px 14px 0}
-  #side{position:fixed;left:0;right:0;bottom:0;height:64dvh;z-index:5;margin:0;border-radius:14px 14px 0 0;background:rgba(14,9,10,.94)}
+  #volhead{flex-wrap:wrap;row-gap:4px}#volhead span{font-size:12px}
+  body:not(.nolist) footer.foot{visibility:hidden}   /* 抽屜在 main 的層級裡，蓋不過頁尾，打開時頁尾先藏起來 */
+  #side{position:fixed;left:0;right:0;bottom:0;height:64dvh;z-index:8;margin:0;border-radius:14px 14px 0 0;background:rgba(14,9,10,.94)}
   body.nolist main{grid-template-columns:1fr}
+  #grab{display:block;flex:none;width:100%;padding:8px 0 6px;font-size:13px;color:var(--dim);border-bottom:1px solid var(--line)}
+  #grab::before{content:"";display:block;width:44px;height:4px;border-radius:2px;background:var(--gold);opacity:.6;margin:0 auto 4px}
   #now{align-self:end;display:grid;grid-template-columns:84px 1fr;column-gap:14px;padding:0 0 calc(10px + env(safe-area-inset-bottom))}
   #cover{width:84px;grid-row:span 3;margin:0}
   #title{font-size:20px}
@@ -128,6 +136,7 @@ body.nolist main{grid-template-columns:minmax(0,1fr)}
     </div>
   </section>
   <aside id="side">
+    <button id="grab" aria-label="收起曲目">收起曲目</button>
     <div id="tabs"></div>
     <div id="volhead"><b></b><span></span><button class="pill red" id="playvol">播放這一卷</button><button class="pill" id="playall">全部播放</button></div>
     <ol id="list"></ol>
@@ -214,6 +223,13 @@ const narrow = matchMedia("(max-width:900px)");
 document.body.classList.toggle("nolist", narrow.matches || store.get("bc-list") === "0");
 $("listbtn").onclick = () => { const off = document.body.classList.toggle("nolist"); if (!narrow.matches) store.set("bc-list", off ? "0" : "1"); };
 $("list").addEventListener("click", () => { if (narrow.matches) setTimeout(() => document.body.classList.add("nolist"), 300); });
+$("grab").onclick = e => { e.stopPropagation(); document.body.classList.add("nolist"); };
+// 手機上曲目清單打開時，點清單外面任何地方就收回去（作者 2026-10-05）
+document.addEventListener("click", e => {
+  if (!narrow.matches || document.body.classList.contains("nolist")) return;
+  if (e.target.closest("#side") || e.target.closest("#listbtn")) return;
+  document.body.classList.add("nolist");
+});
 // 隱藏介面：只剩 CG 與音樂；點畫面任何地方、按 H 或 Esc 叫回來（作者 2026-10-05）
 function bare(on){
   document.body.classList.toggle("bare", on);

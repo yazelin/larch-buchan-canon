@@ -27,6 +27,9 @@ blockquote{margin:16px 0;padding:6px 16px;border-left:2px solid var(--gold);colo
 .top nav a{padding:3px 12px;border:1px solid rgba(202,168,95,.28);border-radius:14px;background:rgba(10,7,8,.55);color:#e2c17c;text-decoration:none;font-size:14.5px;line-height:1.7;white-space:nowrap}
 .top nav a.on{background:#a0202a;border-color:#a0202a;color:#fff}
 .embed .top nav a.ext{display:none}
+html,#list{scrollbar-width:thin;scrollbar-color:rgba(202,168,95,.55) rgba(10,7,8,.6)}   /* 捲軸也套香布纏的金與墨（作者 2026-10-05） */
+::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-track{background:rgba(10,7,8,.6)}
+::-webkit-scrollbar-thumb{background:rgba(202,168,95,.45);border-radius:5px;border:2px solid rgba(10,7,8,.6)}::-webkit-scrollbar-thumb:hover{background:#caa85f}
 @media (max-width:900px){.top{padding:10px 14px 16px;row-gap:6px}.top .brand{font-size:17px}.top .sub{display:none}.top nav{margin-left:0}.top nav a{padding:2px 8px;font-size:12.5px}}
 footer.foot{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;
   padding:20px 16px calc(10px + env(safe-area-inset-bottom));font-size:13px;color:#cfc3b4;text-shadow:0 1px 3px #000,0 0 10px #000;
