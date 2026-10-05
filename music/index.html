@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>仙泉．香布纏 · 原聲帶</title>
+<meta name="description" content="《仙泉．香布纏》原聲帶：五卷四十五首純器樂配樂。播放時依劇情順序換上那一幕的 CG，不用旁白，光聽音樂就能把整部故事聽完。">
+<meta name="theme-color" content="#0b0809">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="香布纏原聲帶">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-v1-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/icon-v1-192.png">
+<link rel="canonical" href="https://yazelin.github.io/larch-buchan-canon/music/">
+<meta property="og:title" content="仙泉．香布纏 · 原聲帶">
+<meta property="og:description" content="五卷四十五首配樂，播放時依劇情順序換上每一幕的 CG，光聽音樂就能聽完整部故事。">
+<meta property="og:image" content="https://yazelin.github.io/larch-buchan-canon/music/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#0b0809;--panel:rgba(16,11,12,.78);--line:rgba(202,168,95,.28);--gold:#caa85f;--gold2:#e2c17c;--red:#a0202a;--fg:#f3ede2;--dim:#a99c8f}
+*{box-sizing:border-box}
+html,body{height:100%;height:100dvh;margin:0;overflow:hidden;overscroll-behavior:none}
+body{background:var(--bg);color:var(--fg);font:16px/1.7 "Noto Serif TC","Noto Serif CJK TC","Songti TC",serif;display:flex;flex-direction:column}
+a{color:var(--gold2)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+#stage{position:fixed;inset:0;z-index:0;overflow:hidden;background:#000}
+#stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.04)}
+#stage img.on{opacity:1;animation:kb var(--kb,20s) linear forwards}
+@keyframes kb{from{transform:scale(1.06) translate(var(--x0),var(--y0))}to{transform:scale(1.18) translate(var(--x1),var(--y1))}}
+#stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.05) 35%,rgba(0,0,0,.4) 55%,rgba(8,5,6,.95) 85%)}   /* 下方播放資訊壓在亮圖上也要看得清 */
+#viz{position:fixed;left:0;right:0;bottom:0;width:100%;height:26vh;z-index:1;pointer-events:none;opacity:.85}
+main{position:relative;z-index:2;flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:24px;padding:20px 24px 0}
+.top{position:fixed;left:0;right:0;top:0;z-index:5;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 24px 22px;
+  background:linear-gradient(180deg,rgba(6,4,5,.88),rgba(6,4,5,.6) 60%,rgba(6,4,5,0));text-shadow:0 1px 3px #000,0 0 12px rgba(0,0,0,.9)}
+.top .brand{margin:0;color:#e2c17c;font-size:20px;letter-spacing:.12em;font-weight:600;text-decoration:none;white-space:nowrap}
+.top .sub{color:#d8cdbf;font-size:13px}
+.top nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.top nav a{padding:3px 12px;border:1px solid rgba(202,168,95,.28);border-radius:14px;background:rgba(10,7,8,.55);color:#e2c17c;text-decoration:none;font-size:14.5px;line-height:1.7;white-space:nowrap}
+.top nav a.on{background:#a0202a;border-color:#a0202a;color:#fff}
+.embed .top nav a.ext{display:none}
+@media (max-width:900px){.top{padding:10px 14px 16px;row-gap:6px}.top .brand{font-size:17px}.top .sub{display:none}.top nav{margin-left:0}.top nav a{padding:2px 8px;font-size:12.5px}}
+footer.foot{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;
+  padding:20px 16px calc(10px + env(safe-area-inset-bottom));font-size:13px;color:#cfc3b4;text-shadow:0 1px 3px #000,0 0 10px #000;
+  background:linear-gradient(0deg,rgba(6,4,5,.92),rgba(6,4,5,.7) 60%,rgba(6,4,5,0))}   /* 跟頂端導覽列一樣固定在畫面上（作者 2026-10-05） */
+footer.foot a{color:#e2c17c;text-decoration:none}
+header.top{position:relative;flex:none}   /* 播放器整頁不捲，導覽列當成第一列，不用 fixed */
+footer.foot{position:relative;background:none}   /* 頁尾同理，當最後一列 */
+#now{align-self:end;max-width:640px;padding-bottom:18px;text-shadow:0 1px 8px #000}
+#cover{width:min(240px,32vw);aspect-ratio:1;border:1px solid var(--line);box-shadow:0 10px 40px rgba(0,0,0,.6);display:block;margin-bottom:14px}
+#vol{color:var(--gold);font-size:14px;letter-spacing:.08em}
+#title{font-size:clamp(22px,3.2vw,34px);margin:2px 0 4px;line-height:1.3}
+#line{color:#e6ddcf;margin:0 0 14px}
+.bar{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums}
+#seek{flex:1;accent-color:var(--red);height:4px}
+.ctl{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.ctl button{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:rgba(10,7,8,.55)}
+.ctl button:hover{border-color:var(--gold)}
+#play{width:58px;height:58px;background:var(--red);border-color:var(--red)}
+.ctl svg{width:22px;height:22px;fill:currentColor}
+#mode,.ctl .txt{width:auto;border-radius:23px;padding:0 16px;font-size:14px;color:var(--gold2)}
+body.nolist #side{display:none}
+body.bare header,body.bare main,body.bare footer,body.bare #viz,body.bare .yz-bubble{opacity:0;pointer-events:none}
+header,main,footer,#viz{transition:opacity .6s}
+#stage::after{transition:opacity .6s}
+body.bare #stage::after{opacity:.25}
+#baretip{position:fixed;z-index:4;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);padding:6px 16px;border-radius:16px;background:rgba(10,7,8,.6);color:var(--dim);font-size:13px;opacity:0;transition:opacity .6s;pointer-events:none}
+body.bare #baretip.show{opacity:1}
+body.nolist main{grid-template-columns:minmax(0,1fr)}
+#side{min-height:0;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);margin-bottom:12px}
+#tabs{flex:none;display:flex;border-bottom:1px solid var(--line)}
+#tabs button{flex:1;padding:10px 0;font-size:15px;color:var(--dim);border-bottom:2px solid transparent}
+#tabs button.on{color:var(--gold2);border-bottom-color:var(--red)}
+#volhead{flex:none;display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
+#volhead b{font-weight:600;color:var(--gold2)}
+#volhead span{color:var(--dim);font-size:13px;flex:1}
+.pill{border:1px solid var(--gold);border-radius:16px;padding:2px 12px;font-size:13px;color:var(--gold2)}
+.pill.red{background:var(--red);border-color:var(--red);color:#fff}
+#list{flex:1;min-height:0;overflow-y:auto;margin:0;padding:0;list-style:none}
+#list li{display:flex;gap:12px;align-items:center;padding:8px 14px;cursor:pointer;border-bottom:1px solid rgba(202,168,95,.08)}
+#list li:hover{background:rgba(160,32,42,.12)}
+#list li.on{background:rgba(160,32,42,.28)}
+#list img{width:52px;height:52px;flex:none;border:1px solid var(--line)}
+#list .t{flex:1;min-width:0}
+#list .t b{display:block;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#list .t span{display:block;font-size:12.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#list .d{font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums}
+.yz-bubble{z-index:50}
+#hint{position:fixed;z-index:3;left:50%;top:40%;transform:translate(-50%,-50%);padding:14px 26px;border:1px solid var(--gold);background:rgba(10,7,8,.8);color:var(--gold2);font-size:17px;letter-spacing:.1em}
+#hint[hidden]{display:none}
+@media (max-width:900px){
+  main{grid-template-columns:1fr;gap:10px;padding:10px 14px 0}
+  #side{position:fixed;left:0;right:0;bottom:0;height:64dvh;z-index:5;margin:0;border-radius:14px 14px 0 0;background:rgba(14,9,10,.94)}
+  body.nolist main{grid-template-columns:1fr}
+  #now{align-self:end;display:grid;grid-template-columns:84px 1fr;column-gap:14px;padding:0 0 calc(10px + env(safe-area-inset-bottom))}
+  #cover{width:84px;grid-row:span 3;margin:0}
+  #title{font-size:20px}
+  #line{font-size:14px;margin-bottom:6px}
+  .bar,.ctl{grid-column:1/-1}
+  #side{margin-bottom:6px}
+  #viz{height:16vh}
+}
+</style>
+</head>
+<body>
+<div id="stage"><img id="s0" alt="" crossorigin="anonymous"><img id="s1" alt="" crossorigin="anonymous"></div>
+<canvas id="viz"></canvas>
+<header class="top"><a class="brand" href="../index.html">仙泉．香布纏 · 原聲帶</a><span class="sub">五卷四十五首，播放時依劇情順序換上那一幕的 CG</span><nav><a href="../index.html">史料考證</a><a href="../story1.html">劇本與 CG</a><a href="../music/" class="on">原聲帶</a><a class="ext" href="https://larch.ink/play/market/458c5e49-9746-41a9-b0a3-5eae2fb8d584" target="_blank" rel="noopener">到 Larch 玩</a></nav></header>
+<main>
+  <section id="now">
+    <img id="cover" alt="">
+    <div id="vol"></div>
+    <div id="title">仙泉．香布纏</div>
+    <p id="line"></p>
+    <div class="bar"><span id="cur">0:00</span><input id="seek" type="range" min="0" max="1000" value="0" aria-label="播放進度"><span id="dur">0:00</span></div>
+    <div class="ctl">
+      <button id="prev" aria-label="上一首"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg></button>
+      <button id="play" aria-label="播放"><svg viewBox="0 0 24 24"><path id="playicon" d="M8 5v14l11-7z"/></svg></button>
+      <button id="next" aria-label="下一首"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6zm10-12h2v12h-2z"/></svg></button>
+      <button id="mode" aria-label="循環模式">循環：全部</button>
+      <button id="listbtn" class="txt" aria-label="曲目">曲目</button>
+      <button id="barebtn" class="txt" aria-label="隱藏介面">隱藏介面</button>
+    </div>
+  </section>
+  <aside id="side">
+    <div id="tabs"></div>
+    <div id="volhead"><b></b><span></span><button class="pill red" id="playvol">播放這一卷</button><button class="pill" id="playall">全部播放</button></div>
+    <ol id="list"></ol>
+  </aside>
+</main>
+<footer class="foot"><span>仙泉．香布纏 · 作者 亞澤 · 配樂由 Google Gemini 生成 · 內容授權 CC BY-NC 4.0</span><a href="../index.html">史料考證</a><a href="https://github.com/yazelin/larch-buchan-canon" target="_blank" rel="noopener">GitHub</a><a href="https://buymeacoffee.com/yazelin" target="_blank" rel="noopener">請我喝咖啡</a></footer>
+<div id="hint" hidden>點一下開始播放</div>
+<div id="baretip">點一下畫面或按 H 顯示介面</div>
+<audio id="audio" crossorigin="anonymous" preload="none"></audio>
+<script>
+"use strict";
+const MUSIC = "https://cdn.jsdelivr.net/gh/yazelin/larch-buchan-canon@main/music/", ART = "https://cdn.jsdelivr.net/gh/yazelin/larch-buchan-art@main/";
+const $ = id => document.getElementById(id);
+const A = $("audio");
+const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
+const MODES = [["all","循環：全部"],["vol","循環：本卷"],["one","循環：單曲"]];
+let T = [], VOLS = [], idx = 0, mode = store.get("bc-mode") || "all", tab = 0, slide = -1, layer = 0, wide = matchMedia("(min-width:901px)");
+const fmt = s => isFinite(s) ? Math.floor(s/60) + ":" + String(Math.floor(s%60)).padStart(2,"0") : "0:00";
+const pretty = f => f.replace(/\.mp3$/,"").replace(/_s_/g,"'s ").replace(/’/g,"'").replace(/_/g," ");
+const cgURL = n => ART + (wide.matches ? "cg/" : "thumbs/") + encodeURIComponent(n);   // 手機用 720 寬的縮圖
+
+fetch("tracks.json").then(r => r.json()).then(data => {
+  T = data;
+  T.forEach((t,i) => { t.i = i; let v = VOLS.find(v => v.vol === t.vol); if (!v) VOLS.push(v = { vol:t.vol, name:t.volName, tracks:[] }); v.tracks.push(t); });
+  $("tabs").innerHTML = VOLS.map((v,i) => `<button data-i="${i}">${v.vol.replace("第","").replace("卷","")}</button>`).join("");
+  $("tabs").onclick = e => { const b = e.target.closest("button"); if (b) showTab(+b.dataset.i); };
+  const last = +(store.get("bc-idx") || 0);
+  load(T[last] ? last : 0, false);
+  const pos = +(store.get("bc-pos") || 0); if (pos) A.addEventListener("loadedmetadata", () => { A.currentTime = pos; }, { once:true });
+  setMode(mode);
+});
+
+function showTab(i){
+  tab = i; const v = VOLS[i];
+  [...$("tabs").children].forEach((b,k) => b.classList.toggle("on", k === i));
+  $("volhead").querySelector("b").textContent = `${v.vol}〈${v.name}〉`;
+  $("volhead").querySelector("span").textContent = `${v.tracks.length} 首 · ${fmt(v.tracks.reduce((s,t) => s + t.dur, 0))}`;
+  $("list").innerHTML = v.tracks.map(t => `<li data-i="${t.i}" class="${t.i === idx ? "on" : ""}"><img loading="lazy" src="${t.cover}" alt=""><div class="t"><b>${t.act}　${pretty(t.file)}</b><span>${t.line}</span></div><span class="d">${fmt(t.dur)}</span></li>`).join("");
+}
+$("list").onclick = e => { const li = e.target.closest("li"); if (li) { load(+li.dataset.i, true); } };
+$("playvol").onclick = () => { setMode(mode === "one" ? "vol" : mode); load(VOLS[tab].tracks[0].i, true); };
+$("playall").onclick = () => { setMode("all"); load(0, true); };
+
+function load(i, autoplay){
+  idx = i; const t = T[i]; store.set("bc-idx", i); store.set("bc-pos", 0);
+  A.src = MUSIC + encodeURIComponent(t.file);
+  $("cover").src = t.cover; $("vol").textContent = `${t.vol}〈${t.volName}〉　${t.act}`;
+  $("title").textContent = pretty(t.file); $("line").textContent = t.line;
+  $("dur").textContent = fmt(t.dur); $("cur").textContent = "0:00"; $("seek").value = 0;   // 還沒載入前先顯示曲目表裡的長度
+  document.title = `${pretty(t.file)} · 香布纏原聲帶`;
+  slide = -1; showSlide(0);
+  const vi = VOLS.findIndex(v => v.vol === t.vol); showTab(vi);
+  const li = $("list").querySelector(`li[data-i="${i}"]`); if (li) li.scrollIntoView({ block:"nearest" });
+  if ("mediaSession" in navigator) navigator.mediaSession.metadata = new MediaMetadata({
+    title: pretty(t.file), artist: "仙泉．香布纏 原聲帶", album: `${t.vol}〈${t.volName}〉${t.act}`,
+    artwork: [{ src: new URL(t.cover, location.href).href, sizes: "640x640", type: "image/webp" }] });
+  if (autoplay) play();
+}
+function play(){ initViz(); A.play().then(() => { $("hint").hidden = true; }).catch(() => { $("hint").hidden = false; }); }
+$("hint").onclick = () => play();
+$("play").onclick = () => A.paused ? play() : A.pause();
+A.onplay = () => { $("playicon").setAttribute("d","M6 5h4v14H6zm8 0h4v14h-4z"); $("play").setAttribute("aria-label","暫停"); };
+A.onpause = () => { $("playicon").setAttribute("d","M8 5v14l11-7z"); $("play").setAttribute("aria-label","播放"); };
+function neighbor(step){
+  const t = T[idx];
+  if (mode === "vol") { const v = VOLS.find(v => v.vol === t.vol).tracks, k = v.indexOf(t); return v[(k + step + v.length) % v.length].i; }
+  return (idx + step + T.length) % T.length;
+}
+$("prev").onclick = () => { if (A.currentTime > 3) A.currentTime = 0; else load(neighbor(-1), true); };
+$("next").onclick = () => load(neighbor(1), true);
+A.onended = () => { if (mode === "one") { A.currentTime = 0; play(); } else if (mode === "all" && idx === T.length - 1) { load(0, false); } else load(neighbor(1), true); };
+function setMode(m){ mode = m; store.set("bc-mode", m); $("mode").textContent = MODES.find(x => x[0] === m)[1]; A.loop = false; }
+const narrow = matchMedia("(max-width:900px)");
+document.body.classList.toggle("nolist", narrow.matches || store.get("bc-list") === "0");
+$("listbtn").onclick = () => { const off = document.body.classList.toggle("nolist"); if (!narrow.matches) store.set("bc-list", off ? "0" : "1"); };
+$("list").addEventListener("click", () => { if (narrow.matches) setTimeout(() => document.body.classList.add("nolist"), 300); });
+// 隱藏介面：只剩 CG 與音樂；點畫面任何地方、按 H 或 Esc 叫回來（作者 2026-10-05）
+function bare(on){
+  document.body.classList.toggle("bare", on);
+  const tip = $("baretip"); tip.classList.toggle("show", on); clearTimeout(bare.t);
+  if (on) bare.t = setTimeout(() => tip.classList.remove("show"), 2500);
+}
+$("barebtn").onclick = e => { e.stopPropagation(); bare(true); };
+document.addEventListener("click", e => { if (document.body.classList.contains("bare")) { e.preventDefault(); e.stopPropagation(); bare(false); } }, true);
+document.addEventListener("keydown", e => {
+  if (e.target.closest && e.target.closest("input")) return;
+  if (e.key === "h" || e.key === "H") bare(!document.body.classList.contains("bare"));
+  else if (e.key === "Escape") bare(false);
+});
+$("mode").onclick = () => setMode(MODES[(MODES.findIndex(x => x[0] === mode) + 1) % MODES.length][0]);
+let seeking = false;
+$("seek").oninput = () => { seeking = true; $("cur").textContent = fmt($("seek").value / 1000 * A.duration); };
+$("seek").onchange = () => { A.currentTime = $("seek").value / 1000 * A.duration; seeking = false; };
+A.ontimeupdate = () => {
+  if (!seeking && A.duration) $("seek").value = A.currentTime / A.duration * 1000;
+  $("cur").textContent = fmt(A.currentTime); $("dur").textContent = fmt(A.duration || T[idx].dur);
+  if (Math.floor(A.currentTime) % 5 === 0) store.set("bc-pos", A.currentTime);
+  const n = T[idx].cgs.length; if (n && A.duration) showSlide(Math.min(n - 1, Math.floor(A.currentTime / A.duration * n)));
+};
+
+// 背景：這首曲子底下那幾張 CG，依時間平均分配，照劇情順序換；沒有 CG 的曲子就用封面
+function showSlide(k){
+  if (k === slide) return; slide = k;
+  const t = T[idx], src = t.cgs.length ? cgURL(t.cgs[k]) : t.cover;
+  const next = $("s" + (1 - layer)), cur = $("s" + layer);
+  // 慢慢平移、放大，時間就是這張圖要停的長度；方向每張隨機，一張圖停一整首也不會定格（作者 2026-10-05）
+  const hold = t.cgs.length ? t.dur / t.cgs.length : t.dur, r = () => (Math.random() * 6 - 3).toFixed(2) + "%";
+  next.onload = () => {
+    next.classList.remove("on"); void next.offsetWidth;
+    next.style.setProperty("--kb", Math.max(8, hold + 2) + "s");
+    for (const v of ["--x0","--y0","--x1","--y1"]) next.style.setProperty(v, r());
+    next.classList.add("on"); cur.classList.remove("on"); layer = 1 - layer;
+  };
+  next.src = src;
+  if (t.cgs[k + 1]) { const im = new Image(); im.crossOrigin = "anonymous"; im.src = cgURL(t.cgs[k + 1]); }   // 先載下一張；帶 CORS，SW 才存得到（不帶是 opaque，存不進去也佔配額）
+}
+
+// 律動：桌機接真的頻譜；手機不接 Web Audio（Android 關螢幕會讓 AudioContext 斷音），畫模擬的
+const cv = $("viz"), g = cv.getContext("2d"); let an = null, buf = null, ctxA = null;
+const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
+function initViz(){
+  if (mobile || ctxA) return;
+  try { ctxA = new (window.AudioContext || window.webkitAudioContext)(); const s = ctxA.createMediaElementSource(A); an = ctxA.createAnalyser(); an.fftSize = 256; an.smoothingTimeConstant = .82; s.connect(an); an.connect(ctxA.destination); buf = new Uint8Array(an.frequencyBinCount); } catch(e) { an = null; }
+  if (ctxA && ctxA.state === "suspended") ctxA.resume();
+}
+function draw(ts){
+  requestAnimationFrame(draw);
+  const w = cv.width = cv.clientWidth * devicePixelRatio, h = cv.height = cv.clientHeight * devicePixelRatio, N = 64;
+  g.clearRect(0,0,w,h);
+  if (an) an.getByteFrequencyData(buf);
+  const grad = g.createLinearGradient(0,h,0,0); grad.addColorStop(0,"rgba(160,32,42,.85)"); grad.addColorStop(.6,"rgba(202,168,95,.55)"); grad.addColorStop(1,"rgba(226,193,124,0)");
+  g.fillStyle = grad; const bw = w / N;
+  for (let i = 0; i < N; i++) {
+    let v;
+    if (an) v = buf[Math.floor(i * buf.length * .72 / N)] / 255;
+    else v = A.paused ? .03 : (.18 + .5 * Math.abs(Math.sin(ts/900 + i*.37) * Math.cos(ts/1300 + i*.21))) * (1 - i/N*.5);
+    const bh = Math.max(2, v * h), x = i * bw;
+    g.fillRect(x + bw*.18, h - bh, bw*.64, bh);
+  }
+}
+requestAnimationFrame(draw);
+
+if ("mediaSession" in navigator) {
+  navigator.mediaSession.setActionHandler("play", play);
+  navigator.mediaSession.setActionHandler("pause", () => A.pause());
+  navigator.mediaSession.setActionHandler("previoustrack", () => load(neighbor(-1), true));
+  navigator.mediaSession.setActionHandler("nexttrack", () => load(neighbor(1), true));
+  try { navigator.mediaSession.setActionHandler("seekto", e => { A.currentTime = e.seekTime; }); } catch(e) {}
+}
+document.addEventListener("keydown", e => { if (e.code === "Space" && e.target === document.body) { e.preventDefault(); $("play").click(); } });
+
+if ("serviceWorker" in navigator) {
+  const had = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+  navigator.serviceWorker.addEventListener("controllerchange", () => { if (had && A.paused) location.reload(); });
+}
+</script>
+<script>
+/* yz-promo-footer (trimmed) | 三件套+BMC 注意力效果 | https://github.com/yazelin/promo-footer-skill
+   對 footer 既有的 Buy Me a Coffee 連結加 bobbing + 講話氣泡（不重新注入連結）。 */
+(function(){"use strict";
+if(window.__yzPromoInit)return;window.__yzPromoInit=1;
+try{if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return}catch(e){}
+var LINES=["嘿，這裡這裡，我是咖啡按鈕","我是一顆很努力的按鈕，求被點一下","噓，亞澤不知道我在偷偷拉贊助","你看我跳得這麼賣力，不請一杯嗎？","不請也沒關係，你來玩我就很開心","一杯咖啡，是下一個作品的燃料","你的咖啡會變成下一個作品，真的","咖啡因進入亞澤體內，程式碼就會自己寫完","用愛發電中，咖啡因可提升發電效率","覺得好玩嗎？抖內一下下","這個網站沒有廣告，只有我這顆按鈕"];
+var CSS="@keyframes yzIdle{0%,55%,100%{transform:translateY(0)}62%{transform:translateY(-4px)}70%{transform:translateY(0)}78%{transform:translateY(-2px)}84%{transform:translateY(0)}}.yz-idle{animation:yzIdle 2.6s ease-in-out infinite}@keyframes yzHop{0%,100%{transform:translateY(0)}20%{transform:translateY(-6px) scale(1.04)}40%{transform:translateY(0) scale(1)}55%{transform:translateY(-3px)}70%{transform:translateY(0)}}.yz-hop{animation:yzHop .9s cubic-bezier(.36,.07,.19,.97)}.yz-bubble{position:fixed;z-index:2147483000;max-width:200px;padding:6px 11px;border-radius:14px;background:#fffdf7;color:#4a3f35;border:1px solid rgba(0,0,0,.1);box-shadow:0 4px 14px rgba(0,0,0,.18);font:13px/1.5 system-ui,-apple-system,'Noto Sans TC',sans-serif;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .25s ease,transform .25s ease}.yz-bubble.yz-on{opacity:1;transform:translateY(0)}.yz-bubble::after{content:'';position:absolute;left:var(--yz-tail,50%);margin-left:-6px;border:6px solid transparent}.yz-bubble.yz-above::after{bottom:-6px;border-bottom:0;border-top:6px solid #fffdf7}.yz-bubble.yz-below::after{top:-6px;border-top:0;border-bottom:6px solid #fffdf7}";
+var bubble,anchor;
+function addCss(){if(document.getElementById("yz-promo-css"))return;var s=document.createElement("style");s.id="yz-promo-css";s.textContent=CSS;document.head.appendChild(s)}
+function findAnchor(){var as=document.querySelectorAll('a[href*="buymeacoffee.com/yazelin"]');if(!as.length)return null;var vis=[],i,r;for(i=0;i<as.length;i++){r=as[i].getBoundingClientRect();if(r.width||r.height)vis.push(as[i])}var pool=vis.length?vis:[].slice.call(as);return pool[pool.length-1]}
+function hop(){anchor.classList.remove("yz-hop");void anchor.offsetWidth;anchor.classList.add("yz-hop")}
+var shown=0,MAX_SHOWS=3;
+function say(){if(document.hidden)return;var r=anchor.getBoundingClientRect();if(!r.width&&!r.height)return;if(r.bottom<0||r.top>innerHeight)return;if(shown>=MAX_SHOWS)return;shown++;bubble.textContent=LINES[Math.floor(Math.random()*LINES.length)];bubble.classList.remove("yz-on","yz-above","yz-below");bubble.style.left="0px";bubble.style.top="0px";var bw=bubble.offsetWidth,bh=bubble.offsetHeight,cx=r.left+r.width/2;var left=Math.max(8,Math.min(cx-bw/2,innerWidth-bw-8));var above=r.top-bh-12>=8;bubble.style.left=left+"px";bubble.style.top=(above?r.top-bh-12:r.bottom+12)+"px";bubble.classList.add(above?"yz-above":"yz-below");bubble.style.setProperty("--yz-tail",Math.max(12,Math.min(cx-left,bw-12))+"px");hop();requestAnimationFrame(function(){bubble.classList.add("yz-on")});setTimeout(function(){bubble.classList.remove("yz-on")},4200)}
+function start(){addCss();anchor=findAnchor();if(!anchor)return false;try{if(getComputedStyle(anchor).display==="inline")anchor.style.display="inline-block"}catch(e){}anchor.classList.add("yz-idle");anchor.addEventListener("animationend",function(e){if(e.animationName==="yzHop")anchor.classList.remove("yz-hop")});bubble=document.createElement("div");bubble.className="yz-bubble";bubble.setAttribute("aria-hidden","true");document.body.appendChild(bubble);window.__yzPromo=say;(function loop(first){if(shown>=MAX_SHOWS)return;setTimeout(function(){say();loop(false)},first?18e3+Math.random()*12e3:9e4+Math.random()*9e4)})(true);return true}
+function boot(){var tries=0;(function t(){if(start())return;if(++tries<20)setTimeout(t,1500)})()}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);else boot();
+})();
+</script>
+</body>
+</html>

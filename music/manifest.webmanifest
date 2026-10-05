@@ -1,0 +1,46 @@
+{
+ "id": "/larch-buchan-canon/music/",
+ "name": "仙泉．香布纏 · 原聲帶",
+ "short_name": "香布纏原聲帶",
+ "lang": "zh-Hant",
+ "description": "五卷四十五首配樂，播放時依劇情順序換上每一幕的 CG。",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#0b0809",
+ "theme_color": "#0b0809",
+ "icons": [
+  {
+   "src": "icons/icon-v1-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-v1-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-v1-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ],
+ "screenshots": [
+  {
+   "src": "shots/narrow.webp",
+   "sizes": "540x1110",
+   "type": "image/webp",
+   "form_factor": "narrow"
+  },
+  {
+   "src": "shots/wide.webp",
+   "sizes": "1280x800",
+   "type": "image/webp",
+   "form_factor": "wide"
+  }
+ ]
+}
