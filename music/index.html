@@ -86,6 +86,9 @@ body.nolist main{grid-template-columns:minmax(0,1fr)}
 #list .t b{display:block;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #list .t span{display:block;font-size:12.5px;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #list .d{font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums}
+#list .dl{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold2)}
+#list .dl:hover{border-color:var(--gold)}
+#list .dl svg{width:16px;height:16px;fill:currentColor}
 .yz-bubble{z-index:50}
 #hint{position:fixed;z-index:3;left:50%;top:40%;transform:translate(-50%,-50%);padding:14px 26px;border:1px solid var(--gold);background:rgba(10,7,8,.8);color:var(--gold2);font-size:17px;letter-spacing:.1em}
 #hint[hidden]{display:none}
@@ -121,6 +124,7 @@ body.nolist main{grid-template-columns:minmax(0,1fr)}
       <button id="mode" aria-label="循環模式">循環：全部</button>
       <button id="listbtn" class="txt" aria-label="曲目">曲目</button>
       <button id="barebtn" class="txt" aria-label="隱藏介面">隱藏介面</button>
+      <button id="dlbtn" class="txt" aria-label="下載這首">下載</button>
     </div>
   </section>
   <aside id="side">
@@ -161,9 +165,19 @@ function showTab(i){
   [...$("tabs").children].forEach((b,k) => b.classList.toggle("on", k === i));
   $("volhead").querySelector("b").textContent = `${v.vol}〈${v.name}〉`;
   $("volhead").querySelector("span").textContent = `${v.tracks.length} 首 · ${fmt(v.tracks.reduce((s,t) => s + t.dur, 0))}`;
-  $("list").innerHTML = v.tracks.map(t => `<li data-i="${t.i}" class="${t.i === idx ? "on" : ""}"><img loading="lazy" src="${t.cover}" alt=""><div class="t"><b>${t.act}　${pretty(t.file)}</b><span>${t.line}</span></div><span class="d">${fmt(t.dur)}</span></li>`).join("");
+  $("list").innerHTML = v.tracks.map(t => `<li data-i="${t.i}" class="${t.i === idx ? "on" : ""}"><img loading="lazy" src="${t.cover}" alt=""><div class="t"><b>${t.act}　${pretty(t.file)}</b><span>${t.line}</span></div><span class="d">${fmt(t.dur)}</span><button class="dl" data-f="${t.i}" aria-label="下載 ${pretty(t.file)}" title="下載"><svg viewBox="0 0 24 24"><path d="M11 4h2v9l3.5-3.5 1.4 1.4L12 16.8 6.1 10.9l1.4-1.4L11 13zM5 18h14v2H5z"/></svg></button></li>`).join("");
 }
-$("list").onclick = e => { const li = e.target.closest("li"); if (li) { load(+li.dataset.i, true); } };
+$("list").onclick = e => { const d = e.target.closest(".dl"); if (d) { e.stopPropagation(); download(+d.dataset.f, d); return; } const li = e.target.closest("li"); if (li) { load(+li.dataset.i, true); } };
+// 下載：音檔在 jsDelivr（別的網域），<a download> 會被忽略，先 fetch 成 blob 再存；失敗就開原檔（作者 2026-10-05：每首都要能下載）
+function download(i, btn){
+  const t = T[i], url = MUSIC + encodeURIComponent(t.file), old = btn.innerHTML;
+  btn.disabled = true; if (btn.id === "dlbtn") btn.textContent = "下載中…";
+  fetch(url).then(r => { if (!r.ok) throw 0; return r.blob(); }).then(b => {
+    const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = t.file.replace(/’/g, "'");
+    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 3000);
+  }).catch(() => window.open(url, "_blank")).then(() => { btn.disabled = false; btn.innerHTML = old; });
+}
+$("dlbtn").onclick = () => download(idx, $("dlbtn"));
 $("playvol").onclick = () => { setMode(mode === "one" ? "vol" : mode); load(VOLS[tab].tracks[0].i, true); };
 $("playall").onclick = () => { setMode("all"); load(0, true); };
 
