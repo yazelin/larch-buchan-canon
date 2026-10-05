@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>仙泉．香布纏 · 設定集</title><meta name="description" content="《仙泉．香布纏》設定集：旁白是誰、誰說了愛、誰沒說、兩個結局怎麼來的，全部劇透。"><meta name="theme-color" content="#0b0809">
+<link rel="icon" href="music/icons/icon-v1-32.png" sizes="32x32">
+<style>:root{color-scheme:dark;--bg:#0b0809;--card:#171012;--line:rgba(202,168,95,.28);--gold:#caa85f;--gold2:#e2c17c;--red:#a0202a;--fg:#f3ede2;--dim:#a99c8f;--accent:#e2c17c}
+*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.9 "Noto Serif TC","Noto Serif CJK TC","Songti TC",serif}
+a{color:var(--gold2)}
+.bg{position:fixed;inset:0;z-index:0;background:#000}
+.bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.bg img.on{opacity:1}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,5,6,.55),rgba(8,5,6,.2) 30%,rgba(8,5,6,.2) 70%,rgba(8,5,6,.55)),linear-gradient(180deg,rgba(8,5,6,.3),rgba(8,5,6,.1) 40%,rgba(8,5,6,.6))}
+main{position:relative;z-index:2;max-width:860px;margin:42vh auto 90px;padding:34px 30px 40px;background:rgba(11,8,9,.86);border:1px solid var(--line);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+h1{color:var(--gold2);font-size:clamp(28px,4.4vw,40px);letter-spacing:.06em;margin:0 0 6px;text-shadow:0 2px 12px #000}
+h1::after{content:"";display:block;width:72px;height:3px;background:var(--red);margin-top:10px}
+h2{color:var(--gold2);font-size:23px;margin-top:56px;padding-left:12px;border-left:3px solid var(--red)}h3{color:var(--fg);margin-top:34px}
+table{border-collapse:collapse;width:100%;font-size:15px;display:block;overflow-x:auto}
+td,th{border:1px solid var(--line);padding:7px 11px;vertical-align:top}th{background:var(--card);color:var(--gold2);font-weight:500}tr:nth-child(even) td{background:rgba(23,16,18,.5)}
+blockquote{margin:16px 0;padding:6px 16px;border-left:2px solid var(--gold);color:#d6cbbd;background:rgba(23,16,18,.6)}strong{color:var(--gold2);font-weight:600}
+.play{display:inline-block;margin:10px 0 22px;padding:6px 18px;border:1px solid var(--red);border-radius:18px;text-decoration:none;background:var(--red);color:#fff}
+.embed .play{display:none}
+@media (max-width:640px){.bg img{object-position:50% 30%}main{margin-top:46vh;padding:24px 16px 32px}}
+.top{position:fixed;left:0;right:0;top:0;z-index:5;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 24px 22px;
+  background:linear-gradient(180deg,rgba(6,4,5,.88),rgba(6,4,5,.6) 60%,rgba(6,4,5,0));text-shadow:0 1px 3px #000,0 0 12px rgba(0,0,0,.9)}
+.top .brand{margin:0;color:#e2c17c;font-size:21px;line-height:1.25;letter-spacing:.12em;font-weight:600;text-decoration:none;white-space:nowrap}
+.top .brand small{display:block;font-size:12.5px;font-weight:400;letter-spacing:.24em;color:#caa85f}
+.top .sub{color:#d8cdbf;font-size:13px}
+.top nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.top nav a{padding:3px 12px;border:1px solid rgba(202,168,95,.28);border-radius:14px;background:rgba(10,7,8,.55);color:#e2c17c;text-decoration:none;font-size:14.5px;line-height:1.7;white-space:nowrap}
+.top nav a.on{background:#a0202a;border-color:#a0202a;color:#fff}
+.embed .top nav a.ext{display:none}
+html,#list{scrollbar-width:thin;scrollbar-color:rgba(202,168,95,.55) rgba(10,7,8,.6)}   /* 捲軸也套香布纏的金與墨（作者 2026-10-05） */
+::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-track{background:rgba(10,7,8,.6)}
+::-webkit-scrollbar-thumb{background:rgba(202,168,95,.45);border-radius:5px;border:2px solid rgba(10,7,8,.6)}::-webkit-scrollbar-thumb:hover{background:#caa85f}
+@media (max-width:900px){.top{padding:10px 14px 16px;row-gap:6px}.top .brand{font-size:18px}.top .brand small{font-size:11.5px}.top .sub{display:none}.top nav{margin-left:0;gap:5px;flex-wrap:nowrap}.top nav a{padding:2px 7px;font-size:12px}}
+footer.foot{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;
+  padding:20px 16px calc(10px + env(safe-area-inset-bottom));font-size:13px;color:#cfc3b4;text-shadow:0 1px 3px #000,0 0 10px #000;
+  background:linear-gradient(0deg,rgba(6,4,5,.92),rgba(6,4,5,.7) 60%,rgba(6,4,5,0))}   /* 跟頂端導覽列一樣固定在畫面上（作者 2026-10-05） */
+footer.foot a{color:#e2c17c;text-decoration:none}</style><script>if(window.self!==window.top)document.documentElement.classList.add("embed")</script></head><body>
+<header class="top"><a class="brand" href="index.html"><small>仙泉．香布纏</small>設定集</a><span class="sub">作者的設定筆記與留給讀者的問題，全部劇透</span><nav><a class="ext" href="https://larch.ink/play/market/458c5e49-9746-41a9-b0a3-5eae2fb8d584" target="_blank" rel="noopener">到 Larch 玩</a><a href="story1.html">劇本與 CG</a><a href="music/">原聲帶</a><a href="settings.html" class="on">設定集</a><a href="index.html">史料考證</a></nav></header>
+<div class="bg" aria-hidden="true"><img class="on" src="https://cdn.jsdelivr.net/gh/yazelin/larch-buchan-art@main/cg/cg5_%E7%B5%82%E4%B9%8B%E4%BA%8C_9_a_v2.webp" alt=""><img alt=""></div>
+<main><style>.warn{padding:12px 16px;background:rgba(160,32,42,.14);border:1px solid rgba(160,32,42,.6);font-size:15.5px}</style><h1>仙泉．香布纏 · 設定集</h1><a class="play" href="https://larch.ink/play/market/458c5e49-9746-41a9-b0a3-5eae2fb8d584">到 Larch 市集玩《仙泉．香布纏》</a><p class="warn">這一頁全部劇透，包含白門樓與兩個結局。</p>
+<p>這一頁是我寫這部時定下的設定：誰知道什麼、誰說了愛、誰一個字都沒說、旁白是誰、兩個結局怎麼來的，還有幾個我自己也沒有答案、想留給讀者的問題。</p>
+<p>全部劇透，包含白門樓與兩個結局。還沒讀完的話，先到 Larch 玩，或先讀「劇本與 CG」。</p>
+<h2>書名</h2>
+<p>「香布纏」唸出來是湘、布、蟬三個人的名字。整部的重點就在這三個字：三個人纏在一起的一輩子。三個人之間的牽連各不相同，底下是同一件事：覺得這個人好好，想和她一起走下去。</p>
+<p>這不是三角戀。荃是四個人一起守的孩子：湘、布、蟬，還有魏續。打仗、史事、泉水與成仙，都是她們身後的背景，每一場戲我先問的是：它讓三個人之間多了什麼。</p>
+<h2>時序：二、一、三、四、五</h2>
+<p>五卷照卷號排，時間卻是第二卷最早：</p>
+<table>
+<thead>
+<tr>
+<th>卷</th>
+<th>年份</th>
+<th>寫什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第二卷・五原前傳</td>
+<td>173–189</td>
+<td>布十歲喝泉、遇見湘、有了荃、跟了丁原，到李肅牽來赤兔</td>
+</tr>
+<tr>
+<td>第一卷・長安篇</td>
+<td>192</td>
+<td>連環計那一年，蟬和布</td>
+</tr>
+<tr>
+<td>第三卷・關東篇</td>
+<td>192–196</td>
+<td>布帶著蟬轉戰關東；湘和荃在長安的地窖裡等了四年</td>
+</tr>
+<tr>
+<td>第四卷・下邳篇</td>
+<td>197–198</td>
+<td>一家人在下邳，最後是白門樓</td>
+</tr>
+<tr>
+<td>第五卷・仙泉篇</td>
+<td>199–223</td>
+<td>史書上沒有的那二十五年</td>
+</tr>
+</tbody>
+</table>
+<p>先讀第一卷，是先認識長安的布和蟬，再回頭看她從哪裡來。想照時間讀的，就從第二卷開始。</p>
+<h2>主角是魏續，他就是旁白</h2>
+<p>這部真正的主角是魏續。書名是湘、布、蟬三個人，說這個故事的人是他：他看著她們三個纏在一起，跟她們一起守著荃，自己的事一個字都沒說。整部作品是魏續坐在那碗水前面，想起的一輩子。</p>
+<p>旁白一直用第三人稱，只露出兩次「我」：第二卷的第一句「這些事，有的是我親眼看見的，有的是她們後來告訴我的，有的，是我自己猜的。」；還有第五卷那碗水放到他面前那一句，從那裡起改成「我」，讀者在選項上替「我」選喝或不喝。</p>
+<p>所以魏續不在場的事，是「她們後來告訴我的」；外人的心裡話，和一家人一輩子沒說出口的事，是「我自己猜的」。不喝的結局在他死後，說話的人已經不在了，故事自己收尾。</p>
+<h2>三口泉</h2>
+<p>這部跟《咒泉．三結義》《洛泉．袁真跡》在同一個世界。泉水喝下或沉入，都會讓人變成女身、得到力量，每一口泉的代價不一樣。</p>
+<p>仙泉在五原北邊靈山幽谷的一個山洞裡。洞底石壁上刻著一尊持長兵器的女子像，臉已經風化看不清，水從像的手下一滴一滴滴進石窪，水面有淡藍的光。</p>
+<ul>
+<li>喝下的人會慢慢變成女身，大約四五年，不可逆，同時得到力量。</li>
+<li>代價是非人的磨難。撐過去的人，可以升仙。磨難先後不拘：布是先喝後難，湘、蟬、荃、魏續是磨難在紅塵裡撐過了才喝。</li>
+<li>喝了以後老得很慢。大人喝不會變年輕，只是從此停在那裡。</li>
+<li>仙泉的女身不行月事、不能生育。這是那個身子本來的樣子，不算代價，布也不當它是損失。</li>
+<li>用力的時候會亮。仙泉的光在身上，從皮膚底下透出來；咒泉的光在甲上。戰場上遠遠看都是一層淡淡的光，兩邊都沒分出不同。</li>
+</ul>
+<p>全作的台詞和旁白，從頭到尾沒有說過「仙」這個字。泉水、磨難、成仙，只給畫面。</p>
+<h2>人</h2>
+<p><strong>布</strong>：并州五原人。父親是邊關將領，親手教她戟法。十歲那年五原城破，父親死了，孩子抱著戟雪夜爬進山洞，喝了石像手下的水，在山裡住了幾年，慢慢變成女身，瞳孔轉紅，黑髮裡透出暗紅。天下人都看得出呂布是女將，沒有女扮男裝。她自稱「丈夫」，用「呂布」這個人認自己：父親的孩子、湘的丈夫、荃的爹、天下的女將，兩邊都是她。如果有一口能變回男人的泉，她不會喝。她幾乎不受傷，靠的是武藝。她要天下第一，只是為了讓湘和荃吃得飽、不被人欺負。</p>
+<p><strong>湘</strong>：嚴湘，魏續的表妹。七歲那年到五原拜年，九歲的男孩教她拉小弓。十七歲那年鮮卑破關，嚴家家破，她遭胡騎凌辱；布違了軍令一個人出營救她，兩人在荒原上住了幾個月。布在荒原上教她拉弓，說出那句「手肘別翹」，她就認出那個男孩了，第一次開口問她的名字，從此知道，從此不問。她懷了孕，布割下自己一縷頭髮和她的結在一起：「把孩子生下來！從今往後，我就是妳的丈夫、孩子的父親！」湘看得遠，看穿了也不點破。她厭惡丁原和董卓，因為他們不把布當人看，這件事她一輩子沒說出口。</p>
+<p><strong>蟬</strong>：并州的孤女，跟湘遇上的是同一場鮮卑破關，七歲沒了家，被王允收養。王允真心待她像女兒，她不是被養大的間諜。十四歲那年，她在洛陽窗後看見剛戴上金冠的布騎赤兔過街，布沒看見她。所以司徒府那一晚，對布是初見，對蟬是第二次，她自己也當成第一次見，一輩子沒說。她開口的第一句「將軍……金冠甚重」，只有見過那頂冠剛戴上的人才會這樣說。她聰明、敢賭，會看人，從來不是苦情的弱女子。</p>
+<p><strong>荃</strong>：湘在 182 年冬天生下的女兒，生父是那場胡騎裡的人。布立誓當她的父親，挑了「荃」這個名字，字形底下是「全」，布也想要一個完整的人生。荃是《楚辭》裡的香草，連到湘；讀音同「泉」，連到那口泉。她叫布「爹」，從小拉弓，手肘老是翹起來。</p>
+<p><strong>魏續</strong>：大布一兩歲，從小一起長大，見過她十歲前的樣子。十一歲那年城破，他跑回城牆下拉她走，她抱著戟不走，他被大人拖走，一路回頭。那是他這輩子唯一一次拉她。後來他從來不問「你還好嗎」。他沒有字，爹娘早逝，沒人替他行冠禮；布二十歲那年的冠禮，他是唯一的見證人，也是第一個叫她「奉先」的人。</p>
+<p><strong>成素</strong>：成廉的妹妹。哥哥從軍中寄回來的信裡寫的都是將軍，她每一封都藏在枕頭底下，從小學騎馬、練刀，想有一天跟在信裡那個人身邊。到定陶時哥哥已經死了，她握著哥哥的刀站在營門口：「剩下的，我來衝。」一個女人要當兵，哪一營都不收，只有布一句話都沒多問就讓她跟著。</p>
+<p><strong>丁原</strong>：待布是真的好，給她最親近的位子、最好看的衣服，每天早晨親手替她梳頭。讓人不舒服的地方在於，他對她的好，全是在打扮一件好東西，沒有把她當一個人。湘看得出來，沒說。</p>
+<p><strong>劉備、關羽、張飛</strong>：就是咒泉那邊的三姊妹。虎牢關三個人打布一個，誰也沒倒，兩邊身上都亮了。布以為她們喝的也是自己那口泉、以前也是男的，所以 195 年她叫劉備「弟」，那是她心裡最親的叫法。劉備那邊以為布喝的是咒泉，到死都這樣以為。兩邊各猜對一半，誰都沒說破。布要到 223 年魏續進谷，說那三個人都走了，才明白過來：她自己六十歲了，還是二十幾歲的樣子，一點要死的跡象都沒有，她們喝的應該是另一口泉。那天她看著火，很久沒說話，只說了一句：「弟弟也走了。」</p>
+<h2>誰知道什麼</h2>
+<ul>
+<li>布十歲以前是男孩：只有湘和魏續知道，兩個人一輩子都沒提過。蟬和荃要到第五卷布自己開口才知道。</li>
+<li>那口泉：湘猜得到布小時候在山裡待過，不知道有泉；魏續從沒問過布是怎麼變的。第五卷布說出來以後，湘只問了一句：「洞裡的水，還在嗎？」</li>
+<li>蟬在洛陽窗後見過布：蟬自己知道，布到最後都不知道。</li>
+<li>湘認出了布：布很久都以為她不知道。</li>
+<li>喝了泉不能生育：湘最先從布身上看出來，自己喝了以後也確定了。荃自己也看出來了，湘以為她不知道，荃也沒說破。</li>
+<li>劉關張喝的是另一口泉：劉備到死都以為布喝的是咒泉；布要到魏續帶回三個人都死了的消息，才明白她們喝的不是同一口。</li>
+<li>魏續愛布、成素愛布：布到最後都不知道。</li>
+</ul>
+<h2>愛：誰說了，誰沒說</h2>
+<p>布從來不說愛，她只用做的。她十歲就變了身子，一個人在山裡長大，沒人教過她什麼是愛。她只知道不能讓她們死，想跟她們一起走下去。這算不算愛，她不知道，也沒想過。劇本不寫布的心裡話，這一題留給讀者。</p>
+<table>
+<thead>
+<tr>
+<th>誰</th>
+<th>說了沒</th>
+<th>怎麼說的</th>
+<th>布怎麼回應</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>湘</td>
+<td>說了</td>
+<td>「我不想比妳先走。」</td>
+<td>留下來，一個一個數「都在」</td>
+</tr>
+<tr>
+<td>蟬</td>
+<td>說了</td>
+<td>「奉先……帶我走」「這一次，是妾自己挑的」</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>成素</td>
+<td>一個字都沒說，是她自己選的</td>
+<td>在〈會〉門外扶著門框，沒有跨進門檻；離別時只說「將軍記得，我也衝過了」；把一疊舊信交給湘，「不用打開」</td>
+<td>布不知道，沒有機會回應。「妳的臉，我記得」是布在不知道的情況下給得出的全部</td>
+</tr>
+<tr>
+<td>魏續</td>
+<td>一個字都沒說，兩個結局都不說破</td>
+<td>用「副將」替代</td>
+<td>布到最後都不知道，謝的是副將</td>
+</tr>
+</tbody>
+</table>
+<p>湘愛布，那時布已經是女身，這份愛不是男歡女愛。蟬覺得自己是愛上了布，但不想佔有，也不想當唯一，所以她能跟湘一見如故。三個人之間是三種不同的牽連。</p>
+<p>成素那句「我也衝過了」有兩層。字面是兵的話：她衝過了，最後一回是赴死。底下是她唯一沒衝的那一次：她一輩子沒有朝布的心衝過去。白門樓上她被押下樓梯時，回頭看的是西邊，布走的方向。</p>
+<p>魏續的「副將」，就是他說不出口那件事的替身，跟成素戴上那頂金冠一樣。只當副將的話，長安的四年、下邳的斷後、曹營的二十五年、六十二歲進山找她，都太多了。他一輩子沒有娶妻。他和成素是一對鏡子：都從小看著布、都沒說出口、都做了斷後的事；成素死在白門樓，他活到了那碗水前面。劇本裡他只露出很小的痕跡：第二卷說完「副將那句，反過來吧」，他一直看著城外，沒有看她；第四卷船邊，他「一次都沒有回頭」，對著第二卷十一歲被拖走時的「一路回頭」；第五卷那碗水前面，「我沒說出口的，也不只這一件」。</p>
+<h2>做的事跟正史一樣，理由不一樣</h2>
+<p>史書上的事都照著發生，只是理由換了一套，讀起來像一個平行世界。</p>
+<ul>
+<li><strong>殺丁原</strong>：正史寫董卓誘布殺丁原。在這裡，幾天前董卓就把幾個將領的家眷「請」進城裡備好的屋子，湘和荃也在裡面；李肅牽來赤兔的那一夜，湘的門外站著幾個不認得的兵，董卓當夜就要併丁原的兵，整營并州弟兄（魏續也在裡面）會被殺光。世人罵她為一匹馬賣主，她從不解釋。</li>
+<li><strong>長安棄妻</strong>：史書裡，陳宮勸布帶兵出城、屯在外面，嚴氏勸布不要丟下妻子出城，其中一句是「妾昔在長安，已為將軍所棄，賴得龐舒私藏妾身耳，今不須顧妾也」（裴注引《英雄記》），布就沒有走。在這裡，長安城破那晚，其實是湘要布去救蟬的：「我們有地方躲，她沒有。」所以下邳堂上那句「妾在長安的時候，就已經被將軍丟下過一次」，是說給陳宮聽的，用一個怕被丟下的婦人，攔住布出城。那天夜裡布問她：「長安那次，是妳叫我走的。」湘說：「那句話，是說給陳宮聽的。是一個怕被丟下的婦人攔著將軍，不是將軍不信他。他要怨，就怨我。」</li>
+<li><strong>名備為弟</strong>：布以為劉備跟她喝的是同一口泉、以前也是男的，叫「弟」是她覺得最親的叫法。</li>
+<li><strong>科頭袒衣</strong>：郝萌半夜攻進下邳府，布沒戴冠、衣服沒穿整齊，牽著妻子破牆逃走。在這裡，那天夜裡她身上只有湘收著的那套五原舊布衣。</li>
+<li><strong>送女與追女</strong>：史書寫布答應把女兒嫁給袁術的兒子，女兒已經上路，陳珪來勸，布「追還絕婚」（《三國志・呂布傳》）。在這裡，荃什麼都沒說，像她娘一樣不問、只點頭，把小木弓收進包袱上了車。陳珪說完，布一句話都沒說就騎赤兔追出去，在官道上攔下車隊。荃撲下車抓住她的腳：「我不想去……我一直都不想去……」布抱住她：「知道了。以後不想，就說。」</li>
+<li><strong>以綿纏女身</strong>：史書說布用絲綿裹著女兒、綁在馬上，想送去袁術那裡換救兵。在這裡，布想的是把荃送出這座必死的城，被射了回來。這一次荃用上了那句話：「爹，妳是要把我送去壽春嗎？」「妳說過，不想，就說。我不想嫁過去。我不想一個人走。」</li>
+<li><strong>白門樓</strong>：被綁上白門樓、死在那裡的「呂布」，是戴著金冠和紅繩的成素。那一聲「大耳兒！不記轅門射戟時耶？」是史書上呂布的話，她替布罵完，把呂布演到最後一刻；她自己就是轅門那天跑去看箭、大喊「中了」的人。劉備、關羽、張飛都認得布的臉，一眼就看出那不是她；張飛往前半步要開口，關羽按住她的手臂，劉備沒回頭。曹操有一點動心，想收降。劉備知道，人一旦留在營裡、驗了傷，替身就會露餡；她說了那句「公不見丁建陽、董卓之事乎」，讓曹操下令處死，沒有說破，布一家才能順利走掉。她用這一句話，報了轅門射戟的恩。替身罵她忘恩，她心裡答：「我一天都沒忘。」</li>
+<li><strong>呂布一家</strong>：城破前，布、湘、蟬、荃坐小船從水路走了。魏續留下，翻倒一條空船，讓湘的舊包袱漂在水上，對外說家眷坐船逃、船翻人沒。水是曹操自己放的，曹營不疑。</li>
+</ul>
+<h2>兩個結局</h2>
+<p>二十五年後，魏續告老，在五原北邊的山裡撿到一支射空的箭，箭尾刻著一道淺淺的痕。他認得，順著箭來的方向找進谷裡。四個人幾乎沒有變老。</p>
+<p>晚飯後，湘把那碗水遞給他。布不說話。讀者替他選。</p>
+<ul>
+<li><strong>喝</strong>：五個人一起留在谷裡。幾年以後，他的身子一年一年變了：「我從來沒問過奉先是怎麼變的。現在，我知道了。」窗紙上是五個人的影子。</li>
+<li><strong>不喝</strong>：他把碗推回去，說「這邊我顧著」，走到谷口的門檻坐下，從此每天坐在那裡。荃替他送飯，湘替他補衣服，蟬在旁邊撫琴，布有時到門檻邊跟他並肩坐著，「那是我這輩子，最好的幾個下午」。他的頭髮一年比一年白，四個人一直是原來的樣子。</li>
+</ul>
+<p>不喝的結局，是魏續臨死前，回想起這一輩子單戀呂布的種種，到死都沒有說出口。最後那個冬天，四個人都在他床邊，湘握著他的手。他耳邊一句一句，都是這輩子聽過、說過的話：「我聽得出那是赤兔。」「我當將軍，你就當我的副將。」「副將那句，反過來吧。」「人中有呂布，馬中有赤兔。」她託人送來一支小箭，一句話都沒帶。「上來。」「斷後，是副將的事。」「我一次都沒有回頭。」「我沒說出口的，也不只這一件。」「那是我這輩子，最好的幾個下午。」這些話裡沒有一個「愛」字。</p>
+<p>布叫他「續。」他答「嗯。」，看著她們笑了一下，天亮以前，他走了。那件事他帶進了墓裡。墓前，布說：「謝謝你，當我的副將。下輩子，換我當你的副將。」她謝的是副將，把十歲那個約還給了他；她到最後都不知道。</p>
+<p>谷口小屋柱子上那個「我們家」，魏續進谷那天下午，荃在最外面又刻了一個口，那一口是魏續。五個口像一個「回」字，兩個結局都有。他進谷那天就回到這個家了，喝不喝，只決定他走不走得到最後。兩個結局的最後一張圖同一個構圖，差在窗上是五個影子還是四個。</p>
+<h2>「我們家」這個字</h2>
+<p>第三卷，長安的地窖裡，湘用炭條在木板上教荃寫字：「這是『呂』。妳爹的姓，也是妳的。」荃說：「兩個口。」湘說：「一個大，一個小。」荃說：「大的是爹，小的是我。」</p>
+<p>接著荃拿過炭條，在「呂」字外面畫了一個大大的口，把兩個口圍在裡面：「這個是娘。」湘說：「這就不是字了。」荃說：「是我們家。」湘沒有擦掉那個圍在外面的口。那天晚上荃睡著以後，湘一個人坐在燈下，看著木板上那三個口，看了很久。</p>
+<p>荃為什麼把娘畫在外面，圍住整個字，而不是在旁邊再加一個口？因為在她心裡，這個家是娘撐起來的。爹是那個大口，在很遠的地方打仗，魏續從外面帶回來「人中有呂布，馬中有赤兔」；一直在她身邊、在地窖裡把餅掰成兩塊、把大的給她的，是娘。娘是把爹和她包在一起的那一圈。</p>
+<p>第四卷最後，一家人到了谷裡，荃在小屋的柱子上刻了同一個字：裡面一個小口挨著「呂」，外面一個大口把它們全包在裡面。多出來的小口是蟬。荃刻的是一個小口，跟自己那個口一樣大，因為在她心裡，蟬比較像姊姊，不像阿姨；所以蟬進了這個家，是在娘那一圈的裡面，挨在爹和荃的旁邊。荃那時候叫她「蟬姊」。湘站在門口看著那四個口，沒有說話；蟬看著挨著「呂」的那個小口，看了很久，笑了。</p>
+<p>第五卷魏續進谷那天下午，荃在最外面又刻了一個口，把整個字包起來，變成五個口。</p>
+<p>這一次她把舅舅放在最大的位置，最外面那一圈。魏續是她從小叫到大的舅舅：在長安的地窖裡，是他扮成僕人上街買糧、把外面的消息帶下來，把餅給她；爹不在的那些年，他一直充當著一部分的父親。荃真心認為，是他守著這個家。</p>
+<p>他也真的守了。下邳城破前，他在船邊說「斷後，是副將的事」，把一家人送走，自己划回城裡；之後在曹營待了二十五年，撐住「船翻人沒」的說法，讓曹營從來沒有派人去查，也沒有追兵找到谷裡。那是整部作品裡最大的一次斷後。所以五個口的最外面，是他。</p>
+<h2>看點</h2>
+<ul>
+<li><strong>手肘別翹</strong>：布的父親教她射箭的話。她說給七歲的湘、說給荒原上的湘、說給荃；轅門射戟那天，她拉弓之前也先把自己的手肘往下壓了一點。很多年以後，荃把同一句話說給蟬聽，蟬說「師父還叫徒弟姊姊？叫我蟬就好」，從此兩個人平輩。</li>
+<li><strong>兩根紅繩</strong>：湘自己搓了好幾個晚上，冠禮那天束在布的頭上。丁原給了金冠，布把紅繩繫到金冠上，那頂冠上唯一屬於她自己的就是紅繩。最後，湘把紅繩一個結一個結解下來，再繫回金冠上，替成素戴好。</li>
+<li><strong>三次梳頭</strong>：湘替她梳（認她是誰），丁原替她梳（把她當好東西打扮），蟬替她解冠（看穿那頂冠：「這頭長髮，是將軍自己的」）。很多年以後，換蟬替湘梳頭，梳了很久，說：「一根白的都沒有。」</li>
+<li><strong>換了吧</strong>：湘每次都捧著那套洗白的五原舊布衣。戰袍、金冠、赤兔都是別人給的，是世人要她當的呂奉先；布衣是任何人打扮她之前，她原本的樣子。湘的意思是：回到家，不用再當誰的好東西。</li>
+<li><strong>續。嗯。</strong>：布和魏續一輩子的一問一答。第五卷他走進谷口，布說：「續。」「嗯。」「這次，上來了。」接的是第四卷船邊那句「上來」。</li>
+<li><strong>這邊我顧著</strong>：魏續說過好幾次，每一次都真的顧著。</li>
+<li><strong>箭尾的刻痕</strong>：布削的每一支箭都刻一道淺痕。地窖裡那支很小的箭，二十五年後山裡那支射空的箭，都靠這道痕認出來。</li>
+</ul>
+<h2>留給讀者想的事</h2>
+<p>這幾個問題，我自己也沒有答案。</p>
+<p><strong>荃最後喝了泉水。那是她自己想的嗎？</strong></p>
+<p>第四卷，荃被送去袁家的路上，在官道上哭著說「我不想去」，布答「知道了。以後不想，就說」。後來圍城裡，荃自己用上了這句：「妳說過，不想，就說。我不想嫁過去。」整部作品一再對荃說：不想，就說。第五卷她在洞裡說：「以前爹說，以後不想，就說。我想。」</p>
+<p>可是同一個時刻，湘站在洞口外，沒有攔。書裡寫：她從來沒有問過荃，想不想一直待在這裡。這一次，她也沒有問。她心裡有一個角落鬆了一口氣：喝了，荃就不會嫁人、不會生孩子，也不會走出這個谷。後來荃的箭一年比一年射得遠，有幾年春天她常一個人站在谷口看那條山路，沒有人問她在看什麼。魏續回來那晚，她很輕地問：「外面……現在是什麼樣子？」湘的碗停了一下，魏續說「跟以前一樣」，她就沒有再問。</p>
+<p>孩子的選擇，有多少是受家裡長輩、大人的影響，有多少是出於自願？荃真的是不想就說了嗎？還是其實沒那麼想，因為大人的關係，還是選擇不說？劇本沒有回答，荃最後有沒有出谷，也沒有寫。</p>
+<p><strong>魏續和成素沒說出口的愛，算是愛嗎？</strong></p>
+<p>兩個人都一個字都沒說，布到最後都不知道。成素用一頂金冠替她死了，魏續用「副將」兩個字守了她一輩子。沒有說出口、對方也不知道的感情，算不算愛？</p>
+<p><strong>布愛她們嗎？</strong></p>
+<p>布從來不說愛，也說不清那是什麼。她只是留下來，一個一個數「都在」。</p>
+<p><strong>一個人的路，是誰替她決定的？</strong></p>
+<p>蟬說「妾這輩子穿什麼、唱什麼、進誰的帳，都是別人定的」，布回她「我也是」。戰袍、金冠、赤兔，都是別人給的。到了第五卷，換她們做了大人，輪到她們替孩子決定，或者沒有開口問。</p></main>
+<footer class="foot"><span>仙泉．香布纏 · 作者 亞澤 · 配樂由 Google Gemini 生成 · 內容授權 CC BY-NC 4.0</span><a href="index.html">史料考證</a><a href="https://github.com/yazelin/larch-buchan-canon" target="_blank" rel="noopener" target="_blank" rel="noopener">GitHub</a><a href="https://buymeacoffee.com/yazelin" target="_blank" rel="noopener" target="_blank" rel="noopener">請我喝咖啡</a></footer>
+<script>(function(){var L=document.querySelectorAll('.bg img');if(L.length<2)return;var cur=0,shown=L[0].src;
+function show(src){if(!src||src===shown)return;shown=src;var n=L[1-cur];n.onload=function(){n.classList.add('on');L[cur].classList.remove('on');cur=1-cur};n.src=src}
+var figs=document.querySelectorAll('figure.cg img');if(!figs.length||!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)show((e.target.currentSrc||e.target.src).replace('/thumbs/','/cg/'))})},{rootMargin:'-45% 0px -45% 0px'});
+figs.forEach(function(f){io.observe(f)})})()</script><script>
+/* yz-promo-footer (trimmed) | 三件套+BMC 注意力效果 | https://github.com/yazelin/promo-footer-skill
+   對 footer 既有的 Buy Me a Coffee 連結加 bobbing + 講話氣泡（不重新注入連結）。 */
+(function(){"use strict";
+if(window.__yzPromoInit)return;window.__yzPromoInit=1;
+try{if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return}catch(e){}
+var LINES=["嘿，這裡這裡，我是咖啡按鈕","我是一顆很努力的按鈕，求被點一下","噓，亞澤不知道我在偷偷拉贊助","你看我跳得這麼賣力，不請一杯嗎？","不請也沒關係，你來玩我就很開心","一杯咖啡，是下一個作品的燃料","你的咖啡會變成下一個作品，真的","咖啡因進入亞澤體內，程式碼就會自己寫完","用愛發電中，咖啡因可提升發電效率","覺得好玩嗎？抖內一下下","這個網站沒有廣告，只有我這顆按鈕"];
+var CSS="@keyframes yzIdle{0%,55%,100%{transform:translateY(0)}62%{transform:translateY(-4px)}70%{transform:translateY(0)}78%{transform:translateY(-2px)}84%{transform:translateY(0)}}.yz-idle{animation:yzIdle 2.6s ease-in-out infinite}@keyframes yzHop{0%,100%{transform:translateY(0)}20%{transform:translateY(-6px) scale(1.04)}40%{transform:translateY(0) scale(1)}55%{transform:translateY(-3px)}70%{transform:translateY(0)}}.yz-hop{animation:yzHop .9s cubic-bezier(.36,.07,.19,.97)}.yz-bubble{position:fixed;z-index:2147483000;max-width:200px;padding:6px 11px;border-radius:14px;background:#fffdf7;color:#4a3f35;border:1px solid rgba(0,0,0,.1);box-shadow:0 4px 14px rgba(0,0,0,.18);font:13px/1.5 system-ui,-apple-system,'Noto Sans TC',sans-serif;pointer-events:none;opacity:0;transform:translateY(5px);transition:opacity .25s ease,transform .25s ease}.yz-bubble.yz-on{opacity:1;transform:translateY(0)}.yz-bubble::after{content:'';position:absolute;left:var(--yz-tail,50%);margin-left:-6px;border:6px solid transparent}.yz-bubble.yz-above::after{bottom:-6px;border-bottom:0;border-top:6px solid #fffdf7}.yz-bubble.yz-below::after{top:-6px;border-top:0;border-bottom:6px solid #fffdf7}";
+var bubble,anchor;
+function addCss(){if(document.getElementById("yz-promo-css"))return;var s=document.createElement("style");s.id="yz-promo-css";s.textContent=CSS;document.head.appendChild(s)}
+function findAnchor(){var as=document.querySelectorAll('a[href*="buymeacoffee.com/yazelin"]');if(!as.length)return null;var vis=[],i,r;for(i=0;i<as.length;i++){r=as[i].getBoundingClientRect();if(r.width||r.height)vis.push(as[i])}var pool=vis.length?vis:[].slice.call(as);return pool[pool.length-1]}
+function hop(){anchor.classList.remove("yz-hop");void anchor.offsetWidth;anchor.classList.add("yz-hop")}
+var shown=0,MAX_SHOWS=3;
+function say(){if(document.hidden)return;var r=anchor.getBoundingClientRect();if(!r.width&&!r.height)return;if(r.bottom<0||r.top>innerHeight)return;if(shown>=MAX_SHOWS)return;shown++;bubble.textContent=LINES[Math.floor(Math.random()*LINES.length)];bubble.classList.remove("yz-on","yz-above","yz-below");bubble.style.left="0px";bubble.style.top="0px";var bw=bubble.offsetWidth,bh=bubble.offsetHeight,cx=r.left+r.width/2;var left=Math.max(8,Math.min(cx-bw/2,innerWidth-bw-8));var above=r.top-bh-12>=8;bubble.style.left=left+"px";bubble.style.top=(above?r.top-bh-12:r.bottom+12)+"px";bubble.classList.add(above?"yz-above":"yz-below");bubble.style.setProperty("--yz-tail",Math.max(12,Math.min(cx-left,bw-12))+"px");hop();requestAnimationFrame(function(){bubble.classList.add("yz-on")});setTimeout(function(){bubble.classList.remove("yz-on")},4200)}
+function start(){addCss();anchor=findAnchor();if(!anchor)return false;try{if(getComputedStyle(anchor).display==="inline")anchor.style.display="inline-block"}catch(e){}anchor.classList.add("yz-idle");anchor.addEventListener("animationend",function(e){if(e.animationName==="yzHop")anchor.classList.remove("yz-hop")});bubble=document.createElement("div");bubble.className="yz-bubble";bubble.setAttribute("aria-hidden","true");document.body.appendChild(bubble);window.__yzPromo=say;(function loop(first){if(shown>=MAX_SHOWS)return;setTimeout(function(){say();loop(false)},first?18e3+Math.random()*12e3:9e4+Math.random()*9e4)})(true);return true}
+function boot(){var tries=0;(function t(){if(start())return;if(++tries<20)setTimeout(t,1500)})()}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);else boot();
+})();
+</script></body></html>
