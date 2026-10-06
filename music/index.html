@@ -149,7 +149,6 @@ body.nolist main{grid-template-columns:minmax(0,1fr)}
 <audio id="audio" crossorigin="anonymous" preload="none"></audio>
 <script>
 "use strict";
-const MUSIC = "https://cdn.jsdelivr.net/gh/yazelin/larch-buchan-canon@main/music/", ART = "https://cdn.jsdelivr.net/gh/yazelin/larch-buchan-art@main/";
 const $ = id => document.getElementById(id);
 const A = $("audio");
 const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
@@ -157,7 +156,7 @@ const MODES = [["all","循環：全部"],["vol","循環：本卷"],["one","循�
 let T = [], VOLS = [], idx = 0, mode = store.get("bc-mode") || "all", tab = 0, slide = -1, layer = 0, wide = matchMedia("(min-width:901px)");
 const fmt = s => isFinite(s) ? Math.floor(s/60) + ":" + String(Math.floor(s%60)).padStart(2,"0") : "0:00";
 const pretty = f => f.replace(/\.mp3$/,"").replace(/_s_/g,"'s ").replace(/’/g,"'").replace(/_/g," ");
-const cgURL = n => ART + (wide.matches ? "cg/" : "thumbs/") + encodeURIComponent(n);   // 手機用 720 寬的縮圖
+const cgURL = (t, k) => t.cgu[k][wide.matches ? 0 : 1];   // [原圖, 手機用 720 寬的縮圖]；完整網址在 tracks.json（jsDelivr 每張卡一個 tag，作者 2026-10-07）
 
 fetch("tracks.json").then(r => r.json()).then(data => {
   T = data;
@@ -180,7 +179,7 @@ function showTab(i){
 $("list").onclick = e => { const d = e.target.closest(".dl"); if (d) { e.stopPropagation(); download(+d.dataset.f, d); return; } const li = e.target.closest("li"); if (li) { load(+li.dataset.i, true); } };
 // 下載：音檔在 jsDelivr（別的網域），<a download> 會被忽略，先 fetch 成 blob 再存；失敗就開原檔（作者 2026-10-05：每首都要能下載）
 function download(i, btn){
-  const t = T[i], url = MUSIC + encodeURIComponent(t.file), old = btn.innerHTML;
+  const t = T[i], url = t.src, old = btn.innerHTML;
   btn.disabled = true; if (btn.id === "dlbtn") btn.textContent = "下載中…";
   fetch(url).then(r => { if (!r.ok) throw 0; return r.blob(); }).then(b => {
     const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = t.file.replace(/’/g, "'");
@@ -193,7 +192,7 @@ $("playall").onclick = () => { setMode("all"); load(0, true); };
 
 function load(i, autoplay){
   idx = i; const t = T[i]; store.set("bc-idx", i); store.set("bc-pos", 0);
-  A.src = MUSIC + encodeURIComponent(t.file);
+  A.src = t.src;
   $("cover").src = t.cover; $("vol").textContent = `${t.vol}〈${t.volName}〉　${t.act}`;
   $("title").textContent = pretty(t.file); $("line").textContent = t.line;
   $("dur").textContent = fmt(t.dur); $("cur").textContent = "0:00"; $("seek").value = 0;   // 還沒載入前先顯示曲目表裡的長度
@@ -258,7 +257,7 @@ A.ontimeupdate = () => {
 // 背景：這首曲子底下那幾張 CG，依時間平均分配，照劇情順序換；沒有 CG 的曲子就用封面
 function showSlide(k){
   if (k === slide) return; slide = k;
-  const t = T[idx], src = t.cgs.length ? cgURL(t.cgs[k]) : t.cover;
+  const t = T[idx], src = t.cgs.length ? cgURL(t, k) : t.cover;
   const next = $("s" + (1 - layer)), cur = $("s" + layer);
   // 慢慢平移、放大，時間就是這張圖要停的長度；方向每張隨機，一張圖停一整首也不會定格（作者 2026-10-05）
   const hold = t.cgs.length ? t.dur / t.cgs.length : t.dur, r = () => (Math.random() * 6 - 3).toFixed(2) + "%";
@@ -269,7 +268,7 @@ function showSlide(k){
     next.classList.add("on"); cur.classList.remove("on"); layer = 1 - layer;
   };
   next.src = src;
-  if (t.cgs[k + 1]) { const im = new Image(); im.crossOrigin = "anonymous"; im.src = cgURL(t.cgs[k + 1]); }   // 先載下一張；帶 CORS，SW 才存得到（不帶是 opaque，存不進去也佔配額）
+  if (t.cgs[k + 1]) { const im = new Image(); im.crossOrigin = "anonymous"; im.src = cgURL(t, k + 1); }   // 先載下一張；帶 CORS，SW 才存得到（不帶是 opaque，存不進去也佔配額）
 }
 
 // 律動：桌機接真的頻譜；手機不接 Web Audio（Android 關螢幕會讓 AudioContext 斷音），畫模擬的
